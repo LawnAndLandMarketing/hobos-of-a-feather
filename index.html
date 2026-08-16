@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hobos of a Feather | Flock Together</title>
+  <meta name="description" content="A completely fictional Florida privacy initiative with cardboard, commitment, and terrible strategic planning.">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta property="og:title" content="Hobos of a Feather">
+  <meta property="og:description" content="Flock together. A fictional Florida roadside privacy parody.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/images/hero-final.jpg">
+  <meta name="theme-color" content="#e95b2b">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <style>
+    :root {
+      --ink: #171713;
+      --paper: #efe8d7;
+      --paper-2: #f7f1e4;
+      --orange: #e95b2b;
+      --yellow: #f0c84b;
+      --teal: #0f6f68;
+      --muted: #6d695f;
+      --rule: rgba(23, 23, 19, .22);
+      --shadow: 0 22px 60px rgba(23, 23, 19, .18);
+      --max: 1220px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .shell { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
+
+    .grain {
+      position: fixed; inset: 0; z-index: 50; pointer-events: none; opacity: .045;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+    }
+
+    .ticker {
+      background: var(--ink); color: var(--paper); overflow: hidden;
+      border-bottom: 4px solid var(--orange); height: 36px; display: flex; align-items: center;
+      font: 800 12px/1 Arial, sans-serif; letter-spacing: .11em; text-transform: uppercase;
+    }
+    .ticker-track { display: flex; width: max-content; animation: crawl 28s linear infinite; }
+    .ticker span { white-space: nowrap; padding-right: 40px; }
+    .ticker b { color: var(--yellow); }
+    @keyframes crawl { to { transform: translateX(-50%); } }
+
+    header {
+      position: absolute; top: 36px; left: 0; right: 0; z-index: 10;
+      padding: 24px 0; color: white;
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+    .brand-mark {
+      width: 43px; height: 43px; display: grid; place-items: center; border: 2px solid white;
+      border-radius: 50%; background: rgba(23,23,19,.48); backdrop-filter: blur(8px);
+      transform: rotate(-8deg); font-size: 22px;
+    }
+    .brand-text { font: 900 15px/.95 Arial Black, Arial, sans-serif; letter-spacing: -.02em; text-transform: uppercase; }
+    .brand-text small { display: block; margin-top: 5px; font: 700 9px/1 Arial, sans-serif; letter-spacing: .18em; color: var(--yellow); }
+    .nav-pill {
+      min-height: 44px; display: inline-flex; align-items: center; justify-content: center;
+      padding: 0 18px; border: 1px solid rgba(255,255,255,.55); border-radius: 999px;
+      background: rgba(23,23,19,.42); color: white; text-decoration: none;
+      font-weight: 800; font-size: 12px; letter-spacing: .06em; text-transform: uppercase;
+      backdrop-filter: blur(10px); transition: transform .2s, background .2s;
+    }
+    .nav-pill:hover { transform: translateY(-2px); background: var(--orange); }
+
+    .hero {
+      min-height: 830px; position: relative; display: grid; align-items: end; color: white;
+      background: #17201f; isolation: isolate;
+    }
+    .hero-media { position: absolute; top: 0; right: 0; bottom: 0; left: 38%; z-index: -2; overflow: hidden; }
+    .hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: center 42%; filter: saturate(.82) contrast(1.08); transform: scale(1.01); }
+    .hero-media::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(15,18,16,.78) 0%, rgba(15,18,16,.24) 38%, rgba(15,18,16,.02) 74%),
+                  linear-gradient(0deg, rgba(15,18,16,.72) 0%, transparent 54%);
+    }
+    .hero-grid { padding: 180px 0 86px; display: grid; grid-template-columns: minmax(0, 620px) 1fr; gap: 48px; align-items: end; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--yellow); font-weight: 900; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 34px; height: 3px; background: var(--orange); }
+    h1 {
+      margin: 18px 0 18px; max-width: 760px; font: 900 clamp(58px, 8vw, 118px)/.82 Arial Black, Arial, sans-serif;
+      letter-spacing: -.075em; text-transform: uppercase; text-wrap: balance;
+    }
+    h1 span { color: var(--yellow); display: block; }
+    .hero-copy { max-width: 590px; margin: 0 0 30px; color: rgba(255,255,255,.82); font: 500 18px/1.55 Georgia, serif; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .button {
+      min-height: 52px; padding: 0 22px; border: 2px solid var(--orange); background: var(--orange); color: white;
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none;
+      border-radius: 3px; font-weight: 900; font-size: 13px; text-transform: uppercase; letter-spacing: .07em;
+      box-shadow: 5px 5px 0 var(--yellow); transition: transform .2s, box-shadow .2s;
+    }
+    .button:hover { transform: translate(3px,3px); box-shadow: 2px 2px 0 var(--yellow); }
+    .button.secondary { background: transparent; border-color: rgba(255,255,255,.55); box-shadow: none; }
+    .button.secondary:hover { background: white; color: var(--ink); transform: none; }
+    .hero-stamp {
+      justify-self: end; width: 176px; aspect-ratio: 1; border: 2px solid rgba(255,255,255,.6); border-radius: 50%;
+      display: grid; place-items: center; text-align: center; transform: rotate(9deg); background: rgba(23,23,19,.32); backdrop-filter: blur(6px);
+      font: 900 14px/1.12 Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase;
+    }
+    .hero-stamp::before { content: "SATIRE\A DEPARTMENT"; white-space: pre; }
+
+    .intro { position: relative; padding: 110px 0 94px; }
+    .intro-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; align-items: start; }
+    .section-kicker { color: var(--orange); font: 900 12px/1 Arial, sans-serif; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 22px; }
+    .section-title { margin: 0; font: 900 clamp(42px, 6vw, 76px)/.94 Arial Black, Arial, sans-serif; letter-spacing: -.06em; text-transform: uppercase; }
+    .section-title em { font-style: normal; color: var(--teal); }
+    .intro-copy { font: 400 clamp(22px, 3vw, 34px)/1.28 Georgia, serif; color: #302f2a; }
+    .intro-copy p { margin: 0 0 26px; }
+    .scribble { position: relative; display: inline-block; }
+    .scribble::after { content: ""; position: absolute; left: -2%; right: -3%; bottom: -6px; height: 8px; background: var(--yellow); z-index: -1; transform: rotate(-1.5deg); }
+
+    .field { background: var(--ink); color: var(--paper); padding: 100px 0; }
+    .field-head { display: flex; justify-content: space-between; gap: 32px; align-items: end; margin-bottom: 42px; }
+    .field-head p { max-width: 400px; margin: 0; color: rgba(255,255,255,.66); line-height: 1.55; }
+    .photo-grid { display: grid; grid-template-columns: 1.35fr .65fr; gap: 18px; }
+    .photo { position: relative; overflow: hidden; min-height: 390px; background: #333; border: 1px solid rgba(255,255,255,.14); }
+    .photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.2,.7,.2,1); }
+    .photo:hover img { transform: scale(1.035); }
+    .photo.hero-shot img { object-position: center 43%; }
+    .photo.small img { object-position: 54% center; }
+    .photo-label {
+      position: absolute; left: 16px; bottom: 16px; right: 16px; padding: 14px 15px;
+      background: rgba(23,23,19,.86); backdrop-filter: blur(8px); border-left: 4px solid var(--yellow);
+      font: 800 12px/1.35 Arial, sans-serif; text-transform: uppercase; letter-spacing: .06em;
+    }
+    .photo-label small { color: rgba(255,255,255,.58); font-weight: 500; display: block; margin-top: 4px; text-transform: none; letter-spacing: 0; }
+
+    .manifesto { padding: 108px 0; background: var(--paper-2); }
+    .manifesto-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 80px; align-items: center; }
+    .quote {
+      padding: 42px; background: var(--yellow); box-shadow: 12px 12px 0 var(--orange); transform: rotate(-1deg);
+      font: 900 clamp(30px, 4vw, 52px)/1.02 Arial Black, Arial, sans-serif; text-transform: uppercase; letter-spacing: -.05em;
+    }
+    .quote small { display: block; margin-top: 24px; font: 800 11px/1.4 Arial, sans-serif; letter-spacing: .11em; }
+    .principles { display: grid; }
+    .principle { display: grid; grid-template-columns: 52px 1fr; gap: 18px; padding: 24px 0; border-bottom: 1px solid var(--rule); }
+    .principle:first-child { border-top: 1px solid var(--rule); }
+    .num { font: 900 14px/1 Arial, sans-serif; color: var(--orange); }
+    .principle h3 { margin: 0 0 7px; font: 900 22px/1 Arial, sans-serif; text-transform: uppercase; letter-spacing: -.03em; }
+    .principle p { margin: 0; color: var(--muted); line-height: 1.55; }
+
+    .faq { padding: 105px 0; }
+    .faq-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: 80px; }
+    details { border-top: 1px solid var(--rule); }
+    details:last-child { border-bottom: 1px solid var(--rule); }
+    summary { cursor: pointer; list-style: none; min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; font-weight: 900; font-size: 17px; text-transform: uppercase; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; width: 34px; height: 34px; border: 1px solid var(--rule); display: grid; place-items: center; border-radius: 50%; flex: 0 0 auto; }
+    details[open] summary::after { content: "−"; background: var(--orange); color: white; border-color: var(--orange); }
+    details p { max-width: 720px; margin: -6px 0 24px; color: var(--muted); line-height: 1.65; }
+
+    .finale { background: var(--teal); color: white; padding: 84px 0; text-align: center; }
+    .finale h2 { margin: 0 auto 18px; max-width: 900px; font: 900 clamp(48px, 8vw, 104px)/.85 Arial Black, Arial, sans-serif; letter-spacing: -.075em; text-transform: uppercase; }
+    .finale h2 span { color: var(--yellow); }
+    .finale p { margin: 0 auto 30px; max-width: 650px; color: rgba(255,255,255,.8); font: 18px/1.6 Georgia, serif; }
+
+    footer { background: var(--ink); color: rgba(255,255,255,.58); padding: 26px 0; font-size: 11px; line-height: 1.5; }
+    .footer-grid { display: flex; justify-content: space-between; gap: 24px; align-items: center; }
+    .footer-grid strong { color: white; letter-spacing: .08em; text-transform: uppercase; }
+
+    .reveal { opacity: 1; transform: none; }
+
+    @media (max-width: 900px) {
+      .hero { min-height: 760px; }
+      .hero-media { inset: 0; }
+      .hero-grid { grid-template-columns: 1fr; padding-top: 170px; }
+      .hero-stamp { display: none; }
+      .hero-media::after { background: linear-gradient(90deg, rgba(15,18,16,.9), rgba(15,18,16,.3)), linear-gradient(0deg, rgba(15,18,16,.95), transparent 70%); }
+      .intro-grid, .manifesto-grid, .faq-grid { grid-template-columns: 1fr; gap: 42px; }
+      .photo-grid { grid-template-columns: 1fr; }
+      .field-head { align-items: start; flex-direction: column; }
+    }
+
+    @media (max-width: 600px) {
+      .shell { width: min(calc(100% - 28px), var(--max)); }
+      .ticker { height: 32px; }
+      header { top: 32px; padding-top: 17px; }
+      .brand-mark { width: 38px; height: 38px; }
+      .nav-pill { display: none; }
+      .hero { min-height: 780px; }
+      .hero-media img { object-position: 58% center; }
+      .hero-grid { padding: 150px 0 58px; min-width: 0; }
+      .hero-grid > * { min-width: 0; }
+      .eyebrow { max-width: 100%; font-size: 10px; line-height: 1.35; letter-spacing: .11em; }
+      .eyebrow::before { width: 26px; flex: 0 0 auto; }
+      h1 { max-width: 100%; font-size: clamp(48px, 14.5vw, 60px); letter-spacing: -.08em; }
+      .hero-copy { font-size: 17px; max-width: 100%; }
+      .hero-actions { align-items: stretch; }
+      .button { width: 100%; }
+      .intro, .field, .manifesto, .faq { padding-block: 76px; }
+      .intro-copy { font-size: 23px; }
+      .photo { min-height: 320px; }
+      .photo.hero-shot { min-height: 430px; }
+      .quote { padding: 30px 25px; box-shadow: 8px 8px 0 var(--orange); }
+      .principle { grid-template-columns: 38px 1fr; }
+      .footer-grid { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .ticker-track { animation: none; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .photo img, .button, .nav-pill { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span><b>Breaking:</b> Local cardboard achieves unprecedented uptime</span>
+      <span><b>Florida:</b> Still extremely Florida</span>
+      <span><b>Official stance:</b> We have no official stance</span>
+      <span><b>Breaking:</b> Local cardboard achieves unprecedented uptime</span>
+      <span><b>Florida:</b> Still extremely Florida</span>
+      <span><b>Official stance:</b> We have no official stance</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="shell nav">
+      <a class="brand" href="#top" aria-label="Hobos of a Feather home">
+        <span class="brand-mark" aria-hidden="true">🪶</span>
+        <span class="brand-text">Hobos of a Feather<small>Flock Together</small></span>
+      </a>
+      <a class="nav-pill" href="#field-reports">Field reports ↓</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-media"><img src="/images/hero-final.jpg" alt="Fictional Florida street activist holding a cardboard sign reading We Saw Nothing"></div>
+      <div class="shell hero-grid">
+        <div>
+          <div class="eyebrow">Florida's least organized privacy initiative</div>
+          <h1>Flock <span>Together.</span></h1>
+          <p class="hero-copy">One bird. One camera. One wildly overqualified piece of cardboard. Welcome to the roadside movement nobody asked for and absolutely nobody authorized.</p>
+          <div class="hero-actions">
+            <a class="button" href="#manifesto">Read the manifesto <span aria-hidden="true">→</span></a>
+            <a class="button secondary" href="#fine-print">Confirm this is satire</a>
+          </div>
+        </div>
+        <div class="hero-stamp" aria-label="Satire department"></div>
+      </div>
+    </section>
+
+    <section class="intro" id="manifesto">
+      <div class="shell intro-grid reveal">
+        <div>
+          <div class="section-kicker">The big idea</div>
+          <h2 class="section-title">A sign of the <em>times.</em></h2>
+        </div>
+        <div class="intro-copy">
+          <p>What if Florida's most ignored citizens became its most <span class="scribble">analog privacy layer?</span></p>
+          <p>Not a plan. Not a service. Barely even a sentence. Just premium-grade parody about humans, cameras, and the enduring strategic value of corrugated cardboard.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="field" id="field-reports">
+      <div class="shell">
+        <div class="field-head reveal">
+          <div>
+            <div class="section-kicker">Unverified field reports</div>
+            <h2 class="section-title">Proof-ish.</h2>
+          </div>
+          <p>Photorealistic scenes from fictional places featuring fictional adults and extremely real commitment to the bit.</p>
+        </div>
+        <div class="photo-grid reveal">
+          <figure class="photo hero-shot">
+            <img src="/images/hero-final.jpg" alt="Fictional activist holding a We Saw Nothing sign on a palm-lined street">
+            <figcaption class="photo-label">Operation: Plausible Deniability<small>Somewhere warm, humid, and legally ambiguous.</small></figcaption>
+          </figure>
+          <figure class="photo small">
+            <img src="/images/scene-c-final.jpg" alt="Fictional activist holding an Ask Me About Privacy sign near traffic lights">
+            <figcaption class="photo-label">The Tall Sign Doctrine<small>Height measured in vibes, not feet.</small></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="manifesto">
+      <div class="shell manifesto-grid reveal">
+        <blockquote class="quote">“When the flock gets cameras, the people get cardboard.”<small>— Absolutely nobody important</small></blockquote>
+        <div class="principles">
+          <article class="principle"><span class="num">01</span><div><h3>Dignity first</h3><p>The joke points at absurd surveillance culture, not at people experiencing homelessness.</p></div></article>
+          <article class="principle"><span class="num">02</span><div><h3>Analog by design</h3><p>No app. No dashboard. No Series A. The cardboard is the platform.</p></div></article>
+          <article class="principle"><span class="num">03</span><div><h3>Zero real operations</h3><p>This is a fictional parody, not advice, recruitment, or a suggestion to obstruct public infrastructure.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="shell faq-grid reveal">
+        <div>
+          <div class="section-kicker">Frequently avoided questions</div>
+          <h2 class="section-title">Fine. <em>Ask.</em></h2>
+        </div>
+        <div>
+          <details open><summary>Is this real?</summary><p>No. It is an aggressively fictional parody website. The people and scenes are synthetic, the organization does not exist, and no services are being offered.</p></details>
+          <details><summary>Is Flock involved?</summary><p>No. Flock Safety is not affiliated with, sponsoring, endorsing, tolerating, or probably even aware of this nonsense.</p></details>
+          <details><summary>Can I actually do this?</summary><p>Don't obstruct roads, traffic devices, cameras, or public infrastructure. Enjoy the joke, respect people, and keep your cardboard safely at home.</p></details>
+          <details><summary>Why Florida?</summary><p>Because every believable American satire eventually reaches Florida.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="finale">
+      <div class="shell reveal">
+        <h2>Birds aren't real.<br><span>This isn't either.</span></h2>
+        <p>Share the page, not the behavior. The only thing we are actually blocking is a productive afternoon.</p>
+        <a class="button" href="#top">Back to the flock ↑</a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="fine-print">
+    <div class="shell footer-grid">
+      <strong>Hobos of a Feather · Flock Together</strong>
+      <span>Satire only. No real people, locations, organization, program, or endorsement. Please do not obstruct traffic or public infrastructure.</span>
+    </div>
+  </footer>
+
+
+</body>
+</html>
