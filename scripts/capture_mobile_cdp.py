@@ -1,6 +1,7 @@
 import asyncio
 import base64
 import json
+import os
 import subprocess
 import time
 import urllib.request
@@ -11,6 +12,7 @@ import websockets
 ROOT = Path(__file__).resolve().parents[1]
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 PORT = 9339
+TARGET_URL = os.environ.get("TARGET_URL", "http://127.0.0.1:4175/?qa=cdp-mobile")
 
 
 def get_ws_url():
@@ -45,7 +47,7 @@ async def run():
             "screenHeight": 844,
         })
         await call("Emulation.setTouchEmulationEnabled", {"enabled": True, "maxTouchPoints": 5})
-        await call("Page.navigate", {"url": "http://127.0.0.1:4175/?qa=cdp-mobile"})
+        await call("Page.navigate", {"url": TARGET_URL})
         await asyncio.sleep(2)
         metrics = await call("Runtime.evaluate", {"expression": "JSON.stringify({innerWidth,innerHeight,scrollWidth:document.documentElement.scrollWidth,scrollHeight:document.documentElement.scrollHeight,bodyWidth:document.body.getBoundingClientRect().width})", "returnByValue": True})
         print(metrics["result"]["value"])
